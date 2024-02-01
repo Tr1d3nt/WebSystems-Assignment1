@@ -1,0 +1,246 @@
+:root {
+  --cardColor: #e0e0e0;
+  --sectionBorderRadius: 25px;
+  --buttonColor: #33b249;
+  --buttonHover: #5dbea3;
+}
+
+body {
+  width: 50vw;
+  margin-left: 25vw;
+  background-color: whitesmoke;
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    width: 100vw;
+    margin-left: 0;
+  }
+}
+
+/* Navigation Header */
+.page-header {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-rows: 75px;
+  gap: 10px;
+  padding: 10px;
+  /* Generated from https://neumorphism.io/#e0e0e0 with modifications made*/
+  border-radius: 54px;
+  background: var(--cardColor);
+  box-shadow: 18px 18px 22px #a8a8a8;
+}
+
+.company-name {
+  grid-column: 2 / 3;
+  text-align: start;
+  width: 50%;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 768px) {
+  .page-header img {
+    display: none;
+  }
+  .company-name {
+    grid-column: 1;
+    display: none;
+  }
+  .page-header {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+/* Welcome Header */
+.welcome-header {
+  display: grid;
+  grid-template-columns: 12fr;
+  margin-top: 50px;
+  background-image: url(images/background-extra-large.jpg);
+  background-size: contain;
+  border-radius: var(--sectionBorderRadius);
+}
+
+@media only screen and (max-width: 1920px) {
+  .welcome-header {
+    background-image: url(images/background-large.jpg);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .welcome-header {
+    background-image: url(images/background-medium.jpg);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .welcome-header {
+    background-image: url(images/background-small.jpg);
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .welcome-header {
+    background-image: url(images/background-extra-small.jpg);
+  }
+}
+
+/* Features Section */
+.features {
+  background-image: url(images/flourish.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  border: none;
+}
+
+.features-reasons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  align-content: center;
+}
+
+.reason {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.icon-container {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Bottom part is generated from https://neumorphism.io/#e0e0e0 with modifications made */
+  border-radius: 50%;
+  background: var(--cardColor);
+  box-shadow: 20px 20px 60px #bebebe;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.icon-container:hover {
+  transform: rotateY(180deg);
+}
+
+/* Product Features */
+.product-features {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 10px;
+}
+
+.product-card {
+  height: 200px;
+  width: 200px;
+  background-color: transparent;
+  perspective: 1000px;
+}
+.product-card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+.product-card:hover .product-card-inner,
+.product-card:active {
+  transform: rotateY(180deg);
+}
+
+.product-card--front,
+.product-card--back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* for Safari */
+  background-color: var(--cardColor);
+  display: flex;
+  justify-content: center;
+  border-radius: var(--sectionBorderRadius);
+}
+
+.product-card--front {
+  transform: rotateY(0deg);
+}
+
+.product-card--back {
+  transform: rotateY(180deg);
+  flex-direction: column;
+}
+
+.button {
+  padding: 15px;
+  margin-top: 15px;
+  background-color: var(--buttonColor);
+  border-radius: 50px;
+  color: white;
+  border: 100px;
+  transition: all 0.2s;
+}
+.button:hover {
+  background-color: var(--buttonHover);
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 768px) {
+  .product-features {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.about {
+  background-color: #e0e0e0;
+  border-radius: var(--sectionBorderRadius);
+  padding: 20px;
+}
+
+.mdn-link > a:link {
+  background-color: var(--buttonColor);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50px;
+}
+
+.mdn-link > a:hover {
+  background-color: var(--buttonHover);
+}
+
+/* footer */
+.footer-section {
+  background-color: var(--cardColor);
+  padding: 20px;
+  border-radius: 20px;
+  color: black;
+}
+
+.footer-section > h2 {
+  color: inherit;
+}
+
+.footer-section > p {
+  color: inherit;
+}

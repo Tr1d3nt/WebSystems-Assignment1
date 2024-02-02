@@ -241,6 +241,10 @@ body {
   color: inherit;
 }
 
+.footer-section > h2::first-letter {
+  color: red;
+}
+
 .footer-section > p {
   color: inherit;
 }
